@@ -22,10 +22,13 @@ class BlogPostResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::toBase()
+        return cache(
+            'blog_posts_count', 
+            static::getModel()::toBase()
                 ->when(!auth()->user()->isAdmin(),
                 fn ($q) => $q->where('user_id', auth()->user()->id)
-            )->count();
+            )->count()
+        );
     }
 
     public static function form(Form $form): Form
@@ -84,7 +87,8 @@ class BlogPostResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('featured_image')
                     ->image()
-                    ->columnStart(1),
+                    ->columnStart(1)
+                    ->required(),
             ]);
     }
 

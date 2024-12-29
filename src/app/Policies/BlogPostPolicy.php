@@ -29,7 +29,7 @@ class BlogPostPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class BlogPostPolicy
      */
     public function restore(User $user, BlogPost $blogPost): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class BlogPostPolicy
      */
     public function forceDelete(User $user, BlogPost $blogPost): bool
     {
-        return false;
+        return true;
     }
 }

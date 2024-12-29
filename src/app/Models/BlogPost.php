@@ -27,4 +27,8 @@ class BlogPost extends Model
     function user(){
         return $this->belongsTo(User::class);
     }
+
+    function getFeaturedImageUrlAttribute(): string{
+        return str($this->featured_image)->isUrl() ? $this->featured_image : asset('storage/'.$this->featured_image);
+    }
 }

@@ -7,6 +7,9 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -68,6 +71,11 @@ class AdminPanelProvider extends PanelProvider
                     950 => '110, 22, 58',  // Darkest
                 ],
             ])
-            ->plugin(new LocalLogins());
+            ->plugin(new LocalLogins())
+            ->navigationItems([
+                NavigationItem::make('site')
+                    ->icon('heroicon-o-home')
+                    ->url(url('/')),
+            ]);
     }
 }
