@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cache;
 class PageController extends Controller
 {
     public function home(){
-        return view('home', ['posts' => \App\Models\BlogPost::latest()->take(6)->get()]);
+        return view('home', ['posts' => \App\Models\BlogPost::active()->latest()->take(6)->get()]);
     }
 
     public function blogsIndex(){

@@ -17,7 +17,7 @@
                     <a href="{{ route('filament.admin.pages.dashboard') }}" class="text-gray-700 hover:text-indigo-600">Manage your account</a>
                 @endauth
                 @guest
-                    <a href="{{ route('register') }}" class="text-gray-700 hover:text-indigo-600">Want to join?</a>
+                    <a href="{{ route('filament.admin.auth.register') }}" class="text-gray-700 hover:text-indigo-600">Want to join?</a>
                     <a href="{{ route('filament.admin.auth.login') }}" class="text-gray-700 hover:text-indigo-600">Login</a>
                 @endguest
             </nav>
